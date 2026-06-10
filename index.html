@@ -26,17 +26,53 @@
             </div>
         </header>
 
+        <div class="tabs-container">
+            <button class="tab-btn active" data-target="tab-news">Feed</button>
+            <button class="tab-btn" data-target="tab-bookmarks">Leer Más Tarde</button>
+            <button class="tab-btn" data-target="tab-ai">Terminal IA</button>
+        </div>
+
         <main class="content-wrapper">
             <div class="status-bar">
                 <span class="status-indicator"></span>
                 <span id="status-text">Sistema En Línea. Esperando inteligencia...</span>
             </div>
             
-            <div id="news-container" class="news-grid">
-                <!-- Las noticias se inyectarán aquí mediante JS -->
-                <div class="loading-state">
-                    <div class="cyber-spinner"></div>
-                    <p>Descifrando información...</p>
+            <!-- Tab: Feed de Noticias -->
+            <div id="tab-news" class="tab-content active">
+                <div id="news-container" class="news-grid">
+                    <div class="loading-state">
+                        <div class="cyber-spinner"></div>
+                        <p>Descifrando información...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Leer Más Tarde -->
+            <div id="tab-bookmarks" class="tab-content hidden">
+                <div class="bookmark-input-group">
+                    <input type="url" id="bookmark-url" placeholder="https://..." class="cyber-input">
+                    <input type="text" id="bookmark-title" placeholder="Título (Opcional)" class="cyber-input">
+                    <button id="btn-save-bookmark" class="cyber-button">Guardar URL</button>
+                </div>
+                <div id="bookmarks-container" class="bookmarks-list">
+                    <!-- Bookmarks se inyectan aquí -->
+                </div>
+            </div>
+
+            <!-- Tab: Terminal IA -->
+            <div id="tab-ai" class="tab-content hidden">
+                <div class="ai-terminal">
+                    <div id="ai-chat-history" class="chat-history">
+                        <div class="chat-message bot">
+                            <span class="chat-sender">Gemini:</span>
+                            <p>Terminal inicializada. ¿En qué puedo ayudarte?</p>
+                        </div>
+                    </div>
+                    <div class="ai-input-group">
+                        <input type="text" id="ai-input" placeholder="Pregunta a Gemini..." class="cyber-input" autocomplete="off">
+                        <button id="btn-send-ai" class="cyber-button">Enviar</button>
+                    </div>
                 </div>
             </div>
         </main>
@@ -53,6 +89,21 @@
                 <p>Pega aquí el resultado de Gemini:</p>
                 <textarea id="manual-input" rows="10" placeholder="[+] Vulnerabilidad detectada en..."></textarea>
                 <button id="btn-save-manual" class="cyber-button full-width">Procesar y Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Configurar API Key -->
+    <div id="apikey-modal" class="modal-overlay hidden">
+        <div class="cyber-modal">
+            <div class="modal-header">
+                <h3><span class="neon-text">Atención:</span> Requiere API Key</h3>
+                <button id="btn-close-apikey-modal" class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 15px;">Para usar el Terminal IA necesitas guardar tu Gemini API Key. Esta clave <strong>solo se guardará en tu dispositivo</strong> (localStorage) de forma segura y nunca se subirá a Internet.</p>
+                <input type="password" id="apikey-input" placeholder="AIzaSy..." class="cyber-input full-width">
+                <button id="btn-save-apikey" class="cyber-button full-width">Guardar Clave Localmente</button>
             </div>
         </div>
     </div>
