@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec News | Daily Intel</title>
+    <meta name="theme-color" content="#0a0e17">
+    <meta name="description" content="Dashboard de noticias diarias de ciberseguridad">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="logo">
+                <span class="neon-text">CyberSec</span><span class="muted-text">Intel</span>
+            </div>
+            <div class="header-actions">
+                <button id="btn-sync" class="cyber-button" title="Sincronizar Datos">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                </button>
+                <button id="btn-add" class="cyber-button outline" title="Añadir Manualmente">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="content-wrapper">
+            <div class="status-bar">
+                <span class="status-indicator"></span>
+                <span id="status-text">Sistema En Línea. Esperando inteligencia...</span>
+            </div>
+            
+            <div id="news-container" class="news-grid">
+                <!-- Las noticias se inyectarán aquí mediante JS -->
+                <div class="loading-state">
+                    <div class="cyber-spinner"></div>
+                    <p>Descifrando información...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para añadir datos manuales -->
+    <div id="add-modal" class="modal-overlay hidden">
+        <div class="cyber-modal">
+            <div class="modal-header">
+                <h3>Ingreso Manual de Inteligencia</h3>
+                <button id="btn-close-modal" class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Pega aquí el resultado de Gemini:</p>
+                <textarea id="manual-input" rows="10" placeholder="[+] Vulnerabilidad detectada en..."></textarea>
+                <button id="btn-save-manual" class="cyber-button full-width">Procesar y Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
