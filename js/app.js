@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appendChatMessage('bot', '<span class="cyber-spinner" style="display:inline-block; width:15px; height:15px; border-width:1px; margin-bottom:0;"></span> Procesando...', loadingId);
 
         try {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${localApiKey}`;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${localApiKey}`;
             const response = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

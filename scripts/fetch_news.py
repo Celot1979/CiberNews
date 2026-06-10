@@ -32,7 +32,7 @@ El formato de cada objeto debe ser estricto:
 def fetch_cyber_news():
     try:
         # Usamos gemini-pro (gemini-1.5-pro o gemini-1.5-flash)
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('gemini-1.5-flash-latest')
         response = model.generate_content(PROMPT)
         
         # Limpiar respuesta por si acaso la IA incluye bloques markdown
